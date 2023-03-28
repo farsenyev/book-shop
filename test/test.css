@@ -1,0 +1,107 @@
+body{
+    background-color: #feffef;
+    display: grid;
+    grid-template-areas:
+    "A B C"
+    "A B C"
+    "A B C";
+
+}
+
+.cart{
+    grid-area: C;
+    width: 300px;
+}
+
+.main-container{
+    border: aquamarine 1px solid;
+    grid-area: B;
+    display: grid;
+    margin: 0;
+    padding: 0;
+    column-gap: 0;
+    width: 800px;
+    grid-template-areas:
+    "B C"
+    "B C"
+    "B C";
+}
+
+.book-container{
+    grid-area: B;
+    width: 500px;
+    border: 1px solid #230704;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    /*grid-template-rows: 200px;*/
+    row-gap: 10px;
+    column-gap: 10px;
+    justify-content: center;
+    align-content: space-between;
+}
+
+.book-item{
+    width: 230px;
+    height: 300px;
+    border: #421006 1px solid;
+}
+
+.books-img{
+    height: 300px;
+    width: 230px;
+    transition: .5s ease;
+}
+
+.book-name{
+    margin: -160px 0 0 0;
+    text-align: center;
+    color: black;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.add-button, .more-button{
+    opacity: 0;
+    z-index: 1000;
+    position: relative;
+}
+
+
+
+.book-item:hover img{
+    opacity: 0.2;
+}
+.book-item:hover h4{
+    opacity: 1;
+}
+.book-item:hover p{
+    opacity: 1;
+}
+.book-item:hover button{
+    opacity: 1;
+}
+
+.popup{
+    display: none;
+}
+.show-popup{
+    display: block;
+}
+
+.overlay{
+
+}
+.overlay-show{
+
+}
+
+
+@media screen and (max-width: 768px){
+    .book-item{
+        grid-column: unset !important;
+        grid-row: unset !important;
+    }
+}
