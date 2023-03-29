@@ -1,3 +1,6 @@
+// popUps are showing on bottom of the page
+//
+
 let mainContainer,
     bookContainer,
     book,
@@ -111,6 +114,7 @@ function init(){
     createBooks()
     createPopUp()
     initButtons()
+    initDragNDrop()
 }
 
 function createHtmlVer(){
@@ -160,7 +164,6 @@ function createCartItem(i){
     removeButton.classList.add('remove-button')
     removeButton.textContent = 'Remove'
 
-    //how update information?????
     totalPriceCart.textContent = 'Total price: ' + String(sum) + '$'
 
     item.append(data, removeButton)
@@ -178,6 +181,7 @@ function createBooks(){
     for (let i = 0; i < books.length; i++){
         book = document.createElement('section')
         book.classList.add('book-item')
+        book.draggable = true
 
         bookImg = document.createElement('img')
         bookImg.setAttribute('src', books[i].imageLink)
@@ -254,17 +258,19 @@ function addBook(i){
 
 function initRemoveButton(){
     for (let i = 0; i < removeButtonContainer.length; i++){
-        removeButtonContainer.item(i).addEventListener("click", removeBook(bookId[i]))
+        removeButtonContainer.item(i).onclick = removeBook(i)
     }
 }
 
 function removeBook(i){
     return function(){
         cartItems.item(i).remove()
-        sum = sum - books[i].price
+        sum = sum - books[bookId[i]].price
         totalPriceCart.textContent = 'Total price: ' + String(sum) + '$'
-        cartItems = document.querySelectorAll('.cart-item')
         bookId.splice(i, 1)
+        cartItems = document.querySelectorAll('.cart-item')
+        removeButtonContainer = document.querySelectorAll('.remove-button')
+        initRemoveButton()
     }
 }
 
@@ -279,6 +285,24 @@ function hidePopUp(i){
     return function(){
         popUpContainer[i].classList.remove('show-popup')
     }
+}
+
+function initDragNDrop(){
+    cart.addEventListener("dragover", (event) => {
+        event.preventDefault()
+    })
+    for (let i = 0; i < bookArray.length; i++){
+        bookArray.item(i).addEventListener("dragstart", (event) => {
+            event.dataTransfer.setData("item", String(i))
+        })
+    }
+    cart.addEventListener("drop", (event) => {
+        let id = Number(event.dataTransfer.getData('item'))
+        cartFill.push(bookArray.item(id))
+        sum = sum + books[id].price
+        cartCounter ++
+        createCartItem(id)
+    })
 }
 
 window.onload = init
