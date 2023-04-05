@@ -8,6 +8,7 @@ Week_1 : Макет страницы каталога
 все теги должны быть созданы в коде js.
 стили, которые вы должны описать в файле css, но вы должны добавить классы css к созданным тегам с помощью JavaScript,
 форма доставки должна быть реализована в файле HTML (не через код js)
+
 Week_2 : Добавьте интерактив на страницы:
 
 ~~добавьте книгу в сумку, нажав на соответствующую кнопку или перетащив изображение книги в сумку (перетащите). Оба варианта должны быть реализованы~~
@@ -30,6 +31,7 @@ the page should be created through the JavaScript code. It means, you have html 
 all tags should be created in the js code.
 styles you should describe in the css file,but you should add css classes to created tags using JavaScript,
 the delivery form should be implemented in the HTML file ( not thru the js code )
+
 Week_2: Add interactive to the pages:
 
 add book to the bag by click on appropriate button or by drag the image of book to the bag (drag and drop). Both options should be implemented
@@ -44,3 +46,12 @@ validation of form fields should run after user left the field (blur),
 
 summarize the personal information when user clicks on Complete button
 
+Validation<br>
+~~//fname              length > 5; only str; no spaces~~<br>
+~~//sname              length > 6; only str; no spaces~~<br>
+~~//date               next day and >~~<br>
+~~//street             length > 6; str + num~~<br>
+~~//house              positive num~~<br>
+~~//flat               positive numbers + dash ('-')~~<br>
+//payment            only 1 chose<br>
+//gifts              2 chose items<br>

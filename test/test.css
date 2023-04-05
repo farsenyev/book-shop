@@ -5,16 +5,41 @@ body{
     "A B C"
     "A B C"
     "A B C";
-
+    font-family: "Damascus", sans-serif;
 }
-
 .cart{
     grid-area: C;
+    height: 1540px;
     width: 300px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: scroll;
+}
+.cart-item{
+    margin-top: 10px;
+    width: 270px;
+    height: 200px;
+    box-shadow: rgba(136, 109, 0, 0.3) 0 0 0 3px;
+}
+.cart-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 150px;
+    margin: 0 0 0 10px;
+}
+.cart-data p{
+    margin: 0;
+}
+.remove-button{
+    margin: 0 0 0 10px;
 }
 
 .main-container{
-    border: aquamarine 1px solid;
     grid-area: B;
     display: grid;
     margin: 0;
@@ -30,7 +55,6 @@ body{
 .book-container{
     grid-area: B;
     width: 500px;
-    border: 1px solid #230704;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -46,7 +70,6 @@ body{
 .book-item{
     width: 230px;
     height: 300px;
-    border: #421006 1px solid;
 }
 
 .books-img{
@@ -89,6 +112,11 @@ body{
 }
 .show-popup{
     display: block;
+    position: absolute;
+    width: 600px;
+    height: 200px;
+    background-color: #8d552f;
+    z-index: 3000;
 }
 
 .overlay{
@@ -98,10 +126,3 @@ body{
 
 }
 
-
-@media screen and (max-width: 768px){
-    .book-item{
-        grid-column: unset !important;
-        grid-row: unset !important;
-    }
-}
