@@ -92,6 +92,7 @@ function createHtmlLayout(){
     house.onblur = houseValid
 
     labelCash = document.createElement('label')
+    labelCash.classList.add('payment')
     payCash = document.createElement('input')
     payCash.setAttribute('type', 'radio')
     payCash.setAttribute('id', 'cash')
@@ -102,6 +103,7 @@ function createHtmlLayout(){
     labelCashText.textContent = 'Cash'
     labelCash.append(payCash, labelCashText)
     labelCard = document.createElement('label')
+    labelCard.classList.add('payment')
     payCard = document.createElement('input')
     payCard.setAttribute('type', 'radio')
     payCard.setAttribute('id', 'card')

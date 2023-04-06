@@ -1,20 +1,22 @@
 body{
     width: 1200px;
+    /*height: 800px;*/
     margin: 0 auto;
     font-family: "Damascus", sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 .form-container{
     width: 1000px;
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 10px;
 }
 .invalid{
-    border: 1px red solid;
+    border-bottom: 3px #c80000 solid;
     border-radius: 2px;
 }
 .col{
@@ -22,15 +24,72 @@ body{
     grid-template-rows: repeat(4, 1fr);
     row-gap: 10px;
 }
-input{
-    height: 15px;
+input, select{
+    height: 25px;
+    border: 0;
+    border-bottom: solid #000 3px;
+}
+input:focus{
+    border: 0;
+    border-bottom: solid #000 3px;
+}
+input::placeholder, input[type=datetime-local], option{
+    font-family: "Damascus", sans-serif;
+    font-size: 17px;
+}
+input[type=radio]{
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    outline: none;
+    background: #d2d2d2;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+input[type=radio]:hover{
+    background: #b6b6b6;
+}
+input[type=radio]:checked{
+    background: #0b9d94;
+}
+input[type=radio]:checked::before{
+    content: '\2717';
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 6px;
+}
+input[type=radio]:checked::after{
+    content: '';
+    position: relative;
+    display: block;
 }
 label{
     height: 20px;
     margin: 5px;
+    font-family: "Damascus", sans-serif;
+}
+.payment{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 35px;
+}
+label[for=cash], label[for=card]{
+    margin: 5px 0 0 5px;
 }
 select{
     margin-top: 2px;
+    padding-bottom: 3px;
 }
 button{
     margin-top: 10px;
@@ -41,6 +100,9 @@ button{
     justify-content: center;
     grid-template-columns: repeat(2, 500px);
     grid-template-rows: auto;
+    gap: 0;
+    column-gap: 8px;
+    row-gap: 5px;
 }
 .cart-item{
     display: flex;
@@ -49,6 +111,7 @@ button{
     align-items: center;
     width: 500px;
     height: 200px;
+    border: black 2px solid;
 }
 .book-img{
     height: 150px;
@@ -58,6 +121,7 @@ button{
 }
 .total-price{
     position: relative;
+    text-align: center;
 }
 .complete-button{
     grid-column: span 2;
@@ -67,4 +131,54 @@ button{
 }
 .error-show{
     display: block;
+}
+
+button{
+    --b: 3px;   /* border thickness */
+    --s: .45em; /* size of the corner */
+    --color: #373B44;
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+            conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+            var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+button:hover,
+button:focus-visible{
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+}
+
+button:active {
+    background: var(--color);
+    color: #fff;
+}
+button:disabled{
+    --b: 3px;   /* border thickness */
+    --s: .45em; /* size of the corner */
+    --color: #7d7d7d;
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+            conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+            var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
