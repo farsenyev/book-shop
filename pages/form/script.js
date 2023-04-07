@@ -333,7 +333,7 @@ function houseValid(){
     unlockCompleteButton()
 }
 function flatValid(){
-    let regexp = /^[0-9]*-*[0-9]*$/gi
+    let regexp = /^[0-9]+-*[0-9]*$/gi
     if (!regexp.test(flat.value)){
         if (!flat.classList.contains('invalid')){
             flat.classList.add('invalid')
