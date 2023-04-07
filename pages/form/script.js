@@ -274,7 +274,28 @@ function surNameValid(){
     unlockCompleteButton()
 }
 function dateValid(){
-    validation[2] = true
+    let a = date.value.split('T')
+    let dateArr = a[0].split('-')
+    let b = minDate.split('T')
+    let minDateArr  = b[0].split('-')
+    let val = []
+    for (let i = 0; i < dateArr; i++){
+        val[i] = dateArr[i] >= minDateArr[i];
+    }
+    if (val.includes(false)){
+
+        if (!date.classList.contains('invalid')){
+            date.classList.add('invalid')
+            errorMessage.classList.add('error-show')
+            errorMessage.textContent = 'Please write correct surname'
+        }
+        validation[2] = false
+    }else{
+        date.classList.remove('invalid')
+        errorMessage.classList.remove('error-show')
+        errorMessage.textContent = ''
+        validation[2] = true
+    }
     unlockCompleteButton()
 
 }
