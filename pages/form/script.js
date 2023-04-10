@@ -98,6 +98,7 @@ function createHtmlLayout(){
     payCash.setAttribute('id', 'cash')
     payCash.setAttribute('value', 'cash')
     payCash.setAttribute('name', 'pay')
+    payCash.checked = true
     labelCashText = document.createElement('label')
     labelCashText.setAttribute('for', 'cash')
     labelCashText.textContent = 'Cash'
